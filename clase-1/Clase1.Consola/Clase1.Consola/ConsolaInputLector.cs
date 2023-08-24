@@ -2,18 +2,23 @@
 
 public interface IInputLector
 {
-    string LeerEntrada();
+    string? LeerEntrada();
+    ConsoleKeyInfo ReadKey();
     void Clear();
 }
 
 public class ConsolaInputLector : IInputLector
 {
-    public string LeerEntrada()
+    public string? LeerEntrada()
     {
         return Console.ReadLine();
     }
     public void Clear()
     {
         Console.Clear();
+    }
+    public ConsoleKeyInfo ReadKey()
+    {
+        return Console.ReadKey();
     }
 }

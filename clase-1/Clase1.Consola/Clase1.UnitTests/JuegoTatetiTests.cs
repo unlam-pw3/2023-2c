@@ -5,6 +5,7 @@ namespace Clase1.UnitTests;
 
 public class JuegoTatetiTests
 {
+
     [Fact]
     public void VerificarGanador_GanadorEnFila_DebeDevolverVerdadero()
     {
@@ -13,8 +14,9 @@ public class JuegoTatetiTests
             .Returns("1")
             .Returns("2")
             .Returns("3");
-        
-        var juego = new JuegoTateti(mockLector.Object, new char[] { 'X', 'X', 'X', '4', '5', '6', '7', '8', '9' });
+        var mockOutput = new Mock<IOutput>();
+
+        var juego = new JuegoTateti(mockLector.Object, mockOutput.Object, new char[] { 'X', 'X', 'X', '4', '5', '6', '7', '8', '9' });
 
         bool resultado = juego.VerificarGanador();
 
@@ -29,8 +31,9 @@ public class JuegoTatetiTests
             .Returns("1")
             .Returns("2")
             .Returns("3");
-        
-        var juego = new JuegoTateti(mockLector.Object, new char[] { 'X', 'O', 'X', 'X', 'O', 'X', 'O', 'X', 'O' });
+        var mockOutput = new Mock<IOutput>();
+
+        var juego = new JuegoTateti(mockLector.Object, mockOutput.Object, new char[] { 'X', 'O', 'X', 'X', 'O', 'X', 'O', 'X', 'O' });
 
         bool resultado = juego.VerificarEmpate();
 
@@ -45,10 +48,10 @@ public class JuegoTatetiTests
             .Returns("1")
             .Returns("2")
             .Returns("3");
+        
+        var mockOutput = new Mock<IOutput>();
 
-        mockLector.Setup(lector => lector.Clear());
-
-        var juego = new JuegoTateti(mockLector.Object);
+        var juego = new JuegoTateti(mockLector.Object, mockOutput.Object);
         juego.Jugar();
 
         Assert.True(juego.JuegoTerminado());
