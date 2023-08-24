@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Clase1.Consola\Clase1.Consola.csproj" />
+    <ProjectReference Include="..\Clase1.Tarea\Clase1.Tarea.csproj" />
   </ItemGroup>
 
 </Project>
