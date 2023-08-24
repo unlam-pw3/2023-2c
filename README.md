@@ -1,4 +1,6 @@
 # 2023-2c Clase 1-Practica
+## En Clase Juego Ta-Te-Ti + Unit tests
+Vimos como hacer una version del juego ta-te-ti utilizando una aplicacion de consola y tambien vimos como agregar unit tests usando XUnit.
 ## Tarea - Juego de adivinanza
 Crear un nuevo juego que contemple que el usuario pueda ingresar un numero maximo, y luego debe adivinar cual es el numero elegido por la computadora, donde en cada intento de adivinar, la computadora le dice, "helado", "frio", "tibio", "caliente", "ardiente".
 Ejemplo:
