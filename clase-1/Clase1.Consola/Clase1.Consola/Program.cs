@@ -6,17 +6,14 @@ class Program
 {
     static void Main(string[] args)
     {
-        //IInputLector lector = new ConsolaInputLector();
-        //IJuegoTateti juego = new JuegoTateti(lector);
-        //juego.Jugar();
-
         var serviceProvider = new ServiceCollection()
                .AddTransient<IInputLector, ConsolaInputLector>()
-               .AddTransient<IJuegoTateti, JuegoTateti>()
+               .AddTransient<IOutput, ConsolaOutput>()
+               .AddTransient<IJuegoAdivinanza, JuegoAdivinanza>()
                .BuildServiceProvider();
 
-        var juego = serviceProvider.GetService<IJuegoTateti>();
-        
+        var juego = serviceProvider.GetService<IJuegoAdivinanza>();
+
         juego!.Jugar();
     }
 }
