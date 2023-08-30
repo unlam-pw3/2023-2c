@@ -1,6 +1,7 @@
 ﻿namespace Clase1.Tarea;
 
-public class JuegoAdivinanza{
+public class JuegoAdivinanza
+{
     private Jugador _player;
     private int _numeroAdivinar;
     private byte _intentos;
@@ -23,18 +24,25 @@ public class JuegoAdivinanza{
         else
         {
             this._intentos++;
+            Estados resultado = Estados.Helado;
             int dif = Math.Abs(this._numeroAdivinar - numero);
             if (dif <= 5)
-                this._player.MostrarIntento(Estados.Ardiente);
-            else if (dif <= 10) {
-                
-                this._player.MostrarIntento(Estados.Caliente);
-            } else if (dif <= 20) {
-                this._player.MostrarIntento(Estados.Tibio);
-            } else if (dif <= 30) {
-                this._player.MostrarIntento(Estados.Frio);
-            } else this._player.MostrarIntento(Estados.Helado);
-
+            {
+                resultado = Estados.Ardiente;
+            }
+            else if (dif <= 10)
+            {
+                resultado = Estados.Caliente;
+            }
+            else if (dif <= 20)
+            {
+                resultado = Estados.Tibio;
+            }
+            else if (dif <= 30)
+            {
+                resultado = Estados.Frio;
+            }
+            this._player.MostrarIntento(resultado);
         }
         return fin;
     }
