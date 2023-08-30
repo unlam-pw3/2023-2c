@@ -1,28 +1,31 @@
-﻿namespace Clase1.Tarea;
+﻿using System.Numerics;
+
+namespace Clase1.Tarea;
 
 class Program
 {
     static void Main(string[] args)
     {
         Console.WriteLine("Bienvenido a Adivina el número");
-        Console.WriteLine("Ingresa el número maximo a adivinar: ");
-        bool estado = Int32.TryParse(Console.ReadLine(), out int numero);
-        Console.WriteLine("Ya puedes empezar a adivinar...");
-        bool fin = false;
-        if (estado)
+        bool estado;
+        do
         {
-            JuegoAdivinanza juego = new(numero, new ConsolaOutput());
-            do
+            Console.Write("Ingresa el número maximo a adivinar: ");
+            estado = Int32.TryParse(Console.ReadLine(), out int numeroMaximo);
+            Console.WriteLine(estado);
+            Console.WriteLine("Ya puedes empezar a adivinar...");
+            if (estado)
             {
-                Console.WriteLine("Ingresa un numero: ");
-                if(Int32.TryParse(Console.ReadLine(), out int numeroEscogido))
-                    fin = juego.adivinar(numeroEscogido);
+                JuegoAdivinanza juego = new(numeroMaximo, new("Jugador 1", new ConsolaOutput()));
+                bool fin = false;
+                do
+                {
+                    Console.Write("Ingresa un numero: ");
+                    if (Int32.TryParse(Console.ReadLine(), out int numeroEscogido))
+                        fin = juego.Adivinar(numeroEscogido);
 
-            } while (!fin);
-        }
-        else
-        {
-            Console.WriteLine("Numero invalido");
-        }
+                } while (!fin);
+            }
+        } while (!estado);
     }
 }
