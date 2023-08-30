@@ -11,16 +11,17 @@ public class JuegoAdivinanzaTest
         // Arrange
         int numeroEscogido = 1;
         int numeroMaximo = 1;
-        var mock = new Mock<IOutput>();
-        mock.Setup(x => x.WriteLine(It.IsAny<string>()));
+        var mock = new Mock<Jugador>();
+        mock.Setup(x => x.MostrarIntento(It.IsAny<Estados>()));
+        mock.Setup(x => x.PartidaFinalizada(It.IsAny<string>()));
         var juego = new JuegoAdivinanza(numeroMaximo, mock.Object);
 
         // Act
-        bool fin = juego.adivinar(numeroEscogido);
+        bool fin = juego.Adivinar(numeroEscogido);
 
         // Assert
         Assert.True(fin);
-        mock.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Once);
+        mock.Verify(x => x.MostrarIntento(It.IsAny<Estados>()), Times.Once);
     }
 
     [Fact]
@@ -29,16 +30,17 @@ public class JuegoAdivinanzaTest
         // Arrange
         int numeroEscogido = 2;
         int numeroMaximo = 1;
-        var mock = new Mock<IOutput>();
-        mock.Setup(x => x.WriteLine(It.IsAny<string>()));
+        var mock = new Mock<Jugador>();
+        mock.Setup(x => x.MostrarIntento(It.IsAny<Estados>()));
+        mock.Setup(x => x.PartidaFinalizada(It.IsAny<string>()));
         var juego = new JuegoAdivinanza(numeroMaximo, mock.Object);
 
         // Act
-        bool fin = juego.adivinar(numeroEscogido);
+        bool fin = juego.Adivinar(numeroEscogido);
 
         // Assert
         Assert.False(fin);
-        mock.Verify(x => x.WriteLine(It.IsAny<string>()), Times.Once);
+        mock.Verify(x => x.MostrarIntento(It.IsAny<Estados>()), Times.Once);
     }
 
 }
