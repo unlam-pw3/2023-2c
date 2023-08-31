@@ -1,0 +1,23 @@
+﻿@model Clase2.IntroMVC.Entidades.Serie
+
+@if(Model.EstaEnHBO ?? false)
+{
+    <img style="height:40px" src="~/images/hbo.png" alt="HBO" />
+}
+@if (Model.EstaEnDisney ?? false)
+{
+    <img style="height:40px" src="~/images/disney.png" alt="HBO" />
+}
+@if(Model.EstaEnAmazon ?? false)
+{
+    <img style="height:40px" src="~/images/amazon.png" alt="HBO" />
+}
+@if(Model.EstaEnNetflix ?? false)
+{
+    <img style="height:40px" src="~/images/netflix.png" alt="HBO" />
+}
+@if(Model.EstaEnStarPlus ?? false)
+{
+    <img style="height:40px" src="~/images/starplus.png" alt="HBO" />
+}
+
