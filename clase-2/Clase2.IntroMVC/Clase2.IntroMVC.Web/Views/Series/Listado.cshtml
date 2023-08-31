@@ -1,0 +1,24 @@
+﻿@using Clase2.IntroMVC.Entidades;
+@model List<Serie>
+@{
+}
+
+<h1>Listado de Series</h1>
+<table>
+    <tr>
+        <th>Titulo</th>
+        <th>Genero</th>
+        <th>Temporadas</th>
+        <th>Plataformas</th>
+    </tr>
+
+    @foreach (Serie serie in Model)
+    {
+        <tr>
+            <td>@serie.Titulo</td>
+            <td>@serie.Genero</td>
+            <td>@((serie.Temporadas ?? new List<Temporada>()).Count())</td>
+            <td>@Html.Partial("_PlataformaPartial", serie)</td>
+        </tr>
+    }
+</table>

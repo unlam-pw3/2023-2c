@@ -1,0 +1,46 @@
+﻿@model Clase2.IntroMVC.Entidades.Serie
+@{
+}
+
+<h1>Agregar Serie</h1>
+<form action="/Series/Agregar" method="post">
+
+    <div class="form-group">
+        <label for="nombre">Titulo</label>
+        <input type="text" id="Titulo" name="Titulo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="nombre">Descripcion</label>
+        <input type="text" id="Descripcion" name="Descripcion" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="nombre">Genero</label>
+        <input type="text" id="Genero" name="Genero" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="nombre">Cantidad de Temporadas</label>
+        <input type="number" id="CantidadDeTemporadas" name="CantidadDeTemporadas" />
+        </div>
+    <div class="form-group">
+        <label for="nombre">Esta En Netflix</label>
+        <input type="checkbox" id="EstaEnNetflix" name="EstaEnNetflix" />
+    </div>
+    <div class="form-group">
+        <label for="nombre">Esta En Disney</label>
+        <input type="checkbox" id="EstaEnDisney" name="EstaEnDisney" />
+    </div>
+        <div class="form-group">
+        <label for="nombre">Esta En Amazon</label>
+        <input type="checkbox" id="EstaEnAmazon" name="EstaEnAmazon" />
+    </div>
+        <div class="form-group">
+        <label for="nombre">Esta En StarPlus</label>
+        <input type="checkbox" id="EstaEnStarPlus" name="EstaEnStarPlus" />
+    </div>
+        <div class="form-group">
+        <label for="nombre">Esta En HBO</label>
+        <input type="checkbox" id="EstaEnHBO" name="EstaEnHBO" />
+    </div>
+    
+    <input type="submit" value="Agregar" class="btn btn-primary" />
+</form>
