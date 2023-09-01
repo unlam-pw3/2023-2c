@@ -1,0 +1,56 @@
+﻿@model Clase2.IntroMVC.Entidades.Pelicula
+@{
+}
+
+<h1>Agregar Película</h1>
+<form action="/Peliculas/Agregar" method="post">
+    <div class="form-group">
+        <label for="Titulo">Título</label>
+        <input type="text" id="Titulo" name="Titulo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Genero">Género</label>
+        <input type="text" id="Genero" name="Genero" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Anio">Año</label>
+        <input type="number" id="Anio" name="Anio" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Presupuesto">Presupuesto</label>
+        <input type="number" id="Presupuesto" name="Presupuesto" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Recaudacion">Recaudación</label>
+        <input type="number" id="Recaudacion" name="Recaudacion" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="ImagenUrl">URL Imagen</label>
+        <input type="text" id="ImagenUrl" name="ImagenUrl" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NominadaAlOscar">¿Fue nominada al Oscar?</label>
+        <input type="checkbox" id="NominadaAlOscar" name="NominadaAlOscar" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnNetflix">Está En Netflix</label>
+        <input type="checkbox" id="EstaEnNetflix" name="EstaEnNetflix" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnDisney">Está En Disney</label>
+        <input type="checkbox" id="EstaEnDisney" name="EstaEnDisney" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnAmazon">Está En Amazon</label>
+        <input type="checkbox" id="EstaEnAmazon" name="EstaEnAmazon" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnStarPlus">Está En StarPlus</label>
+        <input type="checkbox" id="EstaEnStarPlus" name="EstaEnStarPlus" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnHBO">Está En HBO</label>
+        <input type="checkbox" id="EstaEnHBO" name="EstaEnHBO" />
+    </div>
+    <input type="submit" value="Agregar" class="btn btn-primary" />
+</form>

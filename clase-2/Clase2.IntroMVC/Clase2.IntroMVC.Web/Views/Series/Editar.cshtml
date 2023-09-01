@@ -1,0 +1,46 @@
+﻿@using Clase2.IntroMVC.Entidades;
+@model Serie
+@{
+}
+
+<h1>Editar Serie</h1>
+<form action="/Series/Editar/@Model.Id" method="post">
+    <div class="form-group">
+        <label for="Titulo">Titulo</label>
+        <input type="text" id="Titulo" name="Titulo" class="form-control" value="@Model.Titulo" />
+    </div>
+    <div class="form-group">
+        <label for="Descripcion">Descripcion</label>
+        <input type="text" id="Descripcion" name="Descripcion" class="form-control" value="@Model.Descripcion" />
+    </div>
+    <div class="form-group">
+        <label for="Genero">Genero</label>
+        <input type="text" id="Genero" name="Genero" class="form-control" value="@Model.Genero" />
+    </div>
+    <div class="form-group">
+        <label for="CantidadDeTemporadas">Cantidad de Temporadas</label>
+        <input type="number" id="CantidadDeTemporadas" name="CantidadDeTemporadas" value="@((Model.Temporadas ?? new List<Temporada>()).Count())" />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnNetflix">Esta En Netflix</label>
+        <input type="checkbox" id="EstaEnNetflix" name="EstaEnNetflix" @((Model.EstaEnNetflix ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnDisney">Esta En Disney</label>
+        <input type="checkbox" id="EstaEnDisney" name="EstaEnDisney" @((Model.EstaEnDisney ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnAmazon">Esta En Amazon</label>
+        <input type="checkbox" id="EstaEnAmazon" name="EstaEnAmazon" @((Model.EstaEnAmazon ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnStarPlus">Esta En StarPlus</label>
+        <input type="checkbox" id="EstaEnStarPlus" name="EstaEnStarPlus" @((Model.EstaEnStarPlus ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnHBO">Esta En HBO</label>
+        <input type="checkbox" id="EstaEnHBO" name="EstaEnHBO" @((Model.EstaEnHBO ?? false) ? "checked" : "") />
+    </div>
+
+    <input type="submit" value="Editar" class="btn btn-primary" />
+</form>

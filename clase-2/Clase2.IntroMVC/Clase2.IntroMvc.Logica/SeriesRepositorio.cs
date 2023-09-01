@@ -7,7 +7,7 @@ public interface ISeriesRepositorio
     List<Serie> ObtenerTodas();
     void Agregar(Serie serie, int cantTemporadas);
     Serie? ObtenerPorId(int id);
-    void Actualizar(Serie serie);
+    void Actualizar(Serie serie, int cantTemporadas);
     void Eliminar(int id);
 }
 
@@ -35,7 +35,7 @@ public class SeriesRepositorio : ISeriesRepositorio
         return _series.FirstOrDefault(serie => serie.Id == id);
     }
 
-    public void Actualizar(Serie serie)
+    public void Actualizar(Serie serie, int cantidadTemporadas)
     {
         var serieExistente = ObtenerPorId(serie.Id);
 
@@ -53,6 +53,10 @@ public class SeriesRepositorio : ISeriesRepositorio
         serieExistente.EstaEnAmazon = serie.EstaEnAmazon;
         serieExistente.EstaEnStarPlus = serie.EstaEnStarPlus;
         serieExistente.EstaEnHBO = serie.EstaEnHBO;
+        serieExistente.Temporadas = new List<Temporada>();
+        serieExistente.Temporadas
+            .AddRange(Enumerable.Range(1, cantidadTemporadas)
+            .Select(nro => new Temporada { Nro = nro }));
     }
 
     public void Eliminar(int id)

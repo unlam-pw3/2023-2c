@@ -10,8 +10,8 @@
         <th>Genero</th>
         <th>Temporadas</th>
         <th>Plataformas</th>
+        <th>Acciones</th>
     </tr>
-
     @foreach (Serie serie in Model)
     {
         <tr>
@@ -19,6 +19,10 @@
             <td>@serie.Genero</td>
             <td>@((serie.Temporadas ?? new List<Temporada>()).Count())</td>
             <td>@Html.Partial("_PlataformaPartial", serie)</td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = serie.Id })
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = serie.Id })
+            </td>
         </tr>
     }
 </table>

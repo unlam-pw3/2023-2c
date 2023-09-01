@@ -1,0 +1,57 @@
+﻿@using Clase2.IntroMVC.Entidades;
+@model Pelicula
+@{
+}
+
+<h1>Editar Película</h1>
+<form action="/Peliculas/Editar/@Model.Id" method="post">
+    <div class="form-group">
+        <label for="Titulo">Titulo</label>
+        <input type="text" id="Titulo" name="Titulo" class="form-control" value="@Model.Titulo" />
+    </div>
+    <div class="form-group">
+        <label for="Genero">Genero</label>
+        <input type="text" id="Genero" name="Genero" class="form-control" value="@Model.Genero" />
+    </div>
+    <div class="form-group">
+        <label for="Anio">Año</label>
+        <input type="number" id="Anio" name="Anio" class="form-control" value="@Model.Anio" />
+    </div>
+    <div class="form-group">
+        <label for="Presupuesto">Presupuesto</label>
+        <input type="number" id="Presupuesto" name="Presupuesto" class="form-control" value="@Model.Presupuesto" />
+    </div>
+    <div class="form-group">
+        <label for="Recaudacion">Recaudación</label>
+        <input type="number" id="Recaudacion" name="Recaudacion" class="form-control" value="@Model.Recaudacion" />
+    </div>
+    <div class="form-group">
+        <label for="ImagenUrl">URL Imagen</label>
+        <input type="text" id="ImagenUrl" name="ImagenUrl" class="form-control" value="@Model.ImagenUrl" />
+    </div>
+    <div class="form-group">
+        <label for="NominadaAlOscar">¿Fue nominada al Oscar?</label>
+        <input type="checkbox" id="NominadaAlOscar" name="NominadaAlOscar" @((Model.NominadaAlOscar ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnNetflix">Está En Netflix</label>
+        <input type="checkbox" id="EstaEnNetflix" name="EstaEnNetflix" @((Model.EstaEnNetflix ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnDisney">Está En Disney</label>
+        <input type="checkbox" id="EstaEnDisney" name="EstaEnDisney" @((Model.EstaEnDisney ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnAmazon">Está En Amazon</label>
+        <input type="checkbox" id="EstaEnAmazon" name="EstaEnAmazon" @((Model.EstaEnAmazon ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnStarPlus">Está En StarPlus</label>
+        <input type="checkbox" id="EstaEnStarPlus" name="EstaEnStarPlus" @((Model.EstaEnStarPlus ?? false) ? "checked" : "") />
+    </div>
+    <div class="form-group">
+        <label for="EstaEnHBO">Está En HBO</label>
+        <input type="checkbox" id="EstaEnHBO" name="EstaEnHBO" @((Model.EstaEnHBO ?? false) ? "checked" : "") />
+    </div>
+    <input type="submit" value="Editar" class="btn btn-primary" />
+</form>
