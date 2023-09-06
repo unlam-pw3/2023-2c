@@ -1,6 +1,6 @@
 ﻿namespace Clase2.IntroMVC.Entidades;
 
-public class Serie
+public class Serie: IEstaEnPlataforma
 {
     public int Id { get; set; }
     public string? Titulo { get; set; }
