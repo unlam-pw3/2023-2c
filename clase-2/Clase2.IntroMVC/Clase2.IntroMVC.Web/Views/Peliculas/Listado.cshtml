@@ -1,0 +1,34 @@
+﻿@using Clase2.IntroMVC.Entidades;
+@model List<Pelicula>
+@{
+}
+
+<h1>Listado de Peliculas</h1>
+<table>
+    <tr>
+        <th>Título</th>
+        <th>Género</th>
+        <th>Año</th>
+        <th>Presupuesto</th>
+        <th>Recaudación</th>
+        <th>Nominada al Oscar</th>
+        <th>Plataformas</th>
+        <th>Acciones</th>
+    </tr>
+    @foreach (Pelicula pelicula in Model)
+    {
+        <tr>
+            <td>@pelicula.Titulo</td>
+            <td>@pelicula.Genero</td>
+            <td>@pelicula.Anio</td>
+            <td>@pelicula.Presupuesto</td>
+            <td>@pelicula.Recaudacion</td>
+            <td>@((pelicula.NominadaAlOscar ?? false) ? "SI" : "NO")</td>
+            <td>@Html.Partial("_PlataformaPartial", pelicula)</td>
+            <td>
+                @Html.ActionLink("Editar", "Editar", new { id = pelicula.Id })
+                @Html.ActionLink("Eliminar", "Eliminar", new { id = pelicula.Id })
+            </td>
+        </tr>
+    }
+</table>

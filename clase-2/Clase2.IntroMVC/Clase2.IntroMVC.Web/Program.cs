@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<ISeriesRepositorio, SeriesRepositorio>();
+builder.Services.AddScoped<IPeliculasRepositorio, PeliculasRepositorio>();
 
 var app = builder.Build();
 

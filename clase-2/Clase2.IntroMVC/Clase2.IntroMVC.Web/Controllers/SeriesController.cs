@@ -35,4 +35,30 @@ public class SeriesController : Controller
         var series = _seriesRepositorio.ObtenerTodas();
         return View(series);
     }
+
+    public IActionResult Editar(int id)
+    {
+        var serie = _seriesRepositorio.ObtenerPorId(id);
+        return serie != null ? View(serie) : RedirectToAction("Listado");
+    }
+
+    [HttpPost]
+    public IActionResult Editar(Serie serie)
+    {
+        int cantTemporadas = int.Parse(string.IsNullOrEmpty(Request.Form["CantidadDeTemporadas"]) ? "0" : Request.Form["CantidadDeTemporadas"]);
+
+        serie.EstaEnStarPlus = Request.Form["EstaEnStarPlus"] == "on";
+        serie.EstaEnNetflix = Request.Form["EstaEnNetflix"] == "on";
+        serie.EstaEnHBO = Request.Form["EstaEnHBO"] == "on";
+        serie.EstaEnDisney = Request.Form["EstaEnDisney"] == "on";
+        serie.EstaEnAmazon = Request.Form["EstaEnAmazon"] == "on";
+        _seriesRepositorio.Actualizar(serie, cantTemporadas);
+        return RedirectToAction("Listado");
+    }
+
+    public IActionResult Eliminar(int id)
+    {
+        _seriesRepositorio.Eliminar(id);
+        return RedirectToAction("Listado");
+    }
 }
