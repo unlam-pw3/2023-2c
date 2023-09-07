@@ -1,0 +1,47 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model EncuestaViewModel
+@{
+    Layout = "_OceanoLayout";
+}
+<form action="/Encuestas/EnviarRespuesta" method="post">
+
+    <div>
+        <label>Nombre:</label>
+        <input type="text" asp-for="Nombre" value="@Model.Nombre" />
+        <span asp-validation-for="@Model.Nombre " class="text-danger"></span>
+    </div>
+    <div>
+        <label>Apellido:</label>
+        <input type="text" asp-for="Apellido" value="@Model.Apellido" />
+        <span asp-validation-for="@Model.Apellido " class="text-danger"></span>
+    </div>
+    <div>
+        <label>Email:</label>
+        <input type="text" asp-for="Email" value="@Model.Email" />
+        <span asp-validation-for="@Model.Email " class="text-danger"></span>
+    </div>
+    <div>
+        <label>ReEmail:</label>
+        <input type="text" asp-for="ReEmail" value="@Model.ReEmail" />
+        <span asp-validation-for="@Model.ReEmail " class="text-danger"></span>
+    </div>
+    <div>
+        <label>Telefono:</label>
+        <input type="text" asp-for="Telefono" value="@Model.Telefono" />
+        <span asp-validation-for="@Model.Telefono " class="text-danger"></span>
+    </div>
+    <div>
+        <label>Comentario:</label>
+        <input type="text" asp-for="Comentario" value="@Model.Comentario" />
+        <span asp-validation-for="@Model.Comentario " class="text-danger"></span>
+    </div>
+    <div>
+        <label>IngresoConcurso:</label>
+        <input type="number" asp-for="HorasDisponiblesPorDia" value="@Model.HorasDisponiblesPorDia" />
+        <span asp-validation-for="@Model.HorasDisponiblesPorDia " class="text-danger"></span>
+    </div>
+
+    <input type="submit" value="Enviar" />
+</form>
