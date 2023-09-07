@@ -2,7 +2,7 @@
     Layout = "_BaseLayout";
 }
 
-<body style="background-image:url(images/fondo-oceanico.jpg)">
+<body style="background-image:url(/images/fondo-oceanico.jpg)">
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
@@ -35,6 +35,9 @@
             &copy; 2023 - Clase3.LayoutsValidaciones.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-   
-    @await RenderSectionAsync("Scripts", required: false)
+    @section Scripts {
+        @{
+            Html.RenderPartial("_ValidationScriptsPartial");
+        }
+    }
 </body>
