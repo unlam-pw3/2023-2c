@@ -1,0 +1,24 @@
+@{
+    Layout = "_BaseLayout";
+}
+
+<body style="background-image:url(/images/verde.jpg)">
+    <partial name="_MenuPartial.cshtml">
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2023 - Clase3.LayoutsValidaciones.Web - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial.cshtml" />
+        @{
+            //Html.RenderPartial("_ValidationScriptsPartial");
+        }
+    }
+</body>

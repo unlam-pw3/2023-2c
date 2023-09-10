@@ -1,0 +1,71 @@
+@model RegistroViewModel
+@{
+    Layout = ViewData["Layout"] as string ?? "_OceanoLayout";
+}
+
+<form action="/Registro/Registrar" method="post" enctype="multipart/form-data">
+    
+    <div class="mb-3">
+      <label for="Nombre" class="form-label ">Nombre</label>
+      <input type="text" asp-for="Nombre" name="Nombre" id="Nombre" class="form-control form-control-sm witdh:100px" placeholder="Ingrese Nombre" value="@Model.Nombre">
+      <span asp-validation-for="@Model.Nombre " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Apellido" class="form-label">Apellido</label>
+      <input type="text" asp-for="Apellido" name="Apellido" id="Apellido" class="form-control form-control-sm" placeholder="Ingrese Apellido" value="@Model.Apellido">
+      <span asp-validation-for="@Model.Apellido " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Nickname" class="form-label">Nombre de Usuario</label>
+      <input type="text"
+        class="form-control form-control-sm" asp-for="Nickname" name="Nickname" id="Nickname" placeholder="Ingrese Nick" value="@Model.Nickname">
+      <span asp-validation-for="@Model.Nickname " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Email" class="form-label">Email</label>
+      <input type="text" asp-for="Email" name="Email" id="Email" class="form-control form-control-sm" placeholder="Ingrese Email" value="@Model.Email">
+      <span asp-validation-for="@Model.Email " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label for="Password" class="form-label">Contraseña</label>
+      <input type="password" asp-for="Password" name="Password" id="Password" class="form-control form-control-sm" placeholder="Ingrese Password">
+      <span asp-validation-for="@Model.Password " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+      <label for="ConfirmarPassword" class="form-label">Confirmar Contraseña</label>
+      <input type="password" asp-for="ConfirmarPassword" name="ConfirmarPassword" id="ConfirmarPassword" class="form-control form-control-sm" placeholder="Ingrese Password Nuevamente">
+      <span asp-validation-for="@Model.ConfirmarPassword " class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Edad" class="form-label">Edad</label>
+        <input type="number" asp-for="Edad" name="Edad" id="Edad" class="form-control form-control-sm" placeholder="Ingrese Edad" value="@Model.Edad">
+        <span asp-validation-for="@Model.Edad" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label for="Layout" class="form-label">Seleccione color:</label>
+        <select class="form-select form-select-sm" asp-for="Layout" name="Layout" id="Layout">
+            <option value="---">Seleccione color</option>
+            <option value="_AzulClaroLayout">Azul Claro</option>
+            <option value="_VerdeLayout">Verde</option>
+            <option value="_VerdeDegradeLayout">Verde Degradado</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label for="FechaNacimiento" class="form-label">Fecha de Nacimiento</label>
+        <input type="date" asp-for="FechaNacimiento" name="FechaNacimiento" id="FechaNacimiento" class="form-control form-control-sm" placeholder="Ingrese Fecha de Nacimiento" value="@Model.FechaNacimiento">
+        <span asp-validation-for="@Model.FechaNacimiento" class="text-danger"></span>
+    </div>
+
+    
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </div>
+</form>
