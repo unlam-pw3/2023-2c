@@ -28,9 +28,9 @@ namespace Clase3.LayoutsValidaciones.Web.Controllers
                 if(!request.Layout.Equals("---")){
                     RegistroController.Layout = request.Layout;
                 }
-                ViewData["Layout"] = RegistroController.Layout;
                 return RedirectToAction("Index");
             }
+            ViewData["Layout"] = RegistroController.Layout;
             return View(request);
         }
     }
