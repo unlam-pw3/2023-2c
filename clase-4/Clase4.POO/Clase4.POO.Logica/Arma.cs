@@ -1,20 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Clase4.POO.Logica.Interfaces;
+﻿using Clase4.POO.Logica.Interfaces;
 
 namespace Clase4.POO.Logica;
 
 // Clase para representar un arma que implementa IAtacante
 public class Arma : IAtacante
 {
+    public int Id { get; set; }
     public string Nombre { get; }
     public int PoderAtaque { get; }
 
-    public Arma(string nombre, int poderAtaque)
+    public Arma(int id, string nombre, int poderAtaque)
     {
+        Id = id;
         Nombre = nombre;
         PoderAtaque = poderAtaque;
     }

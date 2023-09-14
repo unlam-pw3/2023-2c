@@ -1,3 +1,5 @@
+using Clase4.POO.Logica.Servicios;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+builder.Services.AddSingleton<IPersonajeService, PersonajeService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
