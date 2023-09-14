@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "12ee7913-2cdd-47c0-8631-a26f282145fc",
+		"name": "Clase4.POO.WebApi",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20472244"
+	},
+	"item": [
+		{
+			"name": "api",
+			"item": [
+				{
+					"name": "armas",
+					"item": [
+						{
+							"name": "/api/armas",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/armas",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"armas"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ok",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/armas",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"armas"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Sep 2023 00:08:47 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": 1,\n        \"nombre\": \"Espada\",\n        \"poderAtaque\": 20\n    },\n    {\n        \"id\": 2,\n        \"nombre\": \"Arco\",\n        \"poderAtaque\": 15\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/armas/atacar",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"atacanteId\":  \"6a5c0c01-bec6-4781-b49c-c821e834e1ea\",\n  \"objetivoId\": \"d3f075fd-02b7-4cf0-9539-d47b71c614b0\",\n  \"armaId\": \"1\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/armas/atacar",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"armas",
+										"atacar"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ok-Gandalf-Saruman-Espada",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"atacanteId\":  \"6a5c0c01-bec6-4781-b49c-c821e834e1ea\",\n  \"objetivoId\": \"d3f075fd-02b7-4cf0-9539-d47b71c614b0\",\n  \"armaId\": \"1\"\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/armas/atacar",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"armas",
+												"atacar"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "plain",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Sep 2023 00:10:44 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "Gandalf ataca a Saruman con Espada y hace 20 puntos de daño. El HP de Saruman es ahora 55"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "personajes",
+					"item": [
+						{
+							"name": "/api/personajes",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/personajes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"personajes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Ok",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/personajes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"personajes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Sep 2023 00:09:59 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Kestrel"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id\": \"6a5c0c01-bec6-4781-b49c-c821e834e1ea\",\n        \"nombre\": \"Gandalf\",\n        \"xp\": 100,\n        \"hp\": 100,\n        \"objetosEquipados\": []\n    },\n    {\n        \"id\": \"d3f075fd-02b7-4cf0-9539-d47b71c614b0\",\n        \"nombre\": \"Saruman\",\n        \"xp\": 75,\n        \"hp\": 75,\n        \"objetosEquipados\": []\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "/api/personajes",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<uuid>\",\n  \"nombre\": \"<string>\",\n  \"xp\": \"<integer>\",\n  \"hp\": \"<integer>\",\n  \"objetosEquipados\": [\n    {\n      \"nombre\": \"<string>\"\n    },\n    {\n      \"nombre\": \"<string>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/personajes",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"personajes"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<uuid>\",\n  \"nombre\": \"<string>\",\n  \"xp\": \"<integer>\",\n  \"hp\": \"<integer>\",\n  \"objetosEquipados\": [\n    {\n      \"nombre\": \"<string>\"\n    },\n    {\n      \"nombre\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/personajes",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"personajes"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/personajes/:id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/api/personajes/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"personajes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/api/personajes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"personajes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "/api/personajes/:id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": \"<uuid>\",\n  \"nombre\": \"<string>\",\n  \"xp\": \"<integer>\",\n  \"hp\": \"<integer>\",\n  \"objetosEquipados\": [\n    {\n      \"nombre\": \"<string>\"\n    },\n    {\n      \"nombre\": \"<string>\"\n    }\n  ]\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/personajes/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"personajes",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "<uuid>"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"id\": \"<uuid>\",\n  \"nombre\": \"<string>\",\n  \"xp\": \"<integer>\",\n  \"hp\": \"<integer>\",\n  \"objetosEquipados\": [\n    {\n      \"nombre\": \"<string>\"\n    },\n    {\n      \"nombre\": \"<string>\"\n    }\n  ]\n}",
+											"options": {
+												"raw": {
+													"headerFamily": "json",
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/api/personajes/:id",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"api",
+												"personajes",
+												":id"
+											],
+											"variable": [
+												{
+													"key": "id"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "/"
+		}
+	]
+}
