@@ -16,6 +16,11 @@ public class Arma : IAtacante
         PoderAtaque = poderAtaque;
     }
 
+    public Arma(string nombre, int poderAtaque){
+        Nombre = nombre;
+        PoderAtaque = poderAtaque;
+    }
+
     public void Atacar(Personaje objetivo)
     {
         Console.WriteLine($"{Nombre} ataca a {objetivo.Nombre} y hace {PoderAtaque} puntos de daño.");
