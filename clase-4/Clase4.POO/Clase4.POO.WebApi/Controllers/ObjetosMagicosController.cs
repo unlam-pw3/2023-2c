@@ -11,7 +11,7 @@ public class ObjetosMagicosController : ControllerBase
 {
     IPersonajeService _personajeService;
     IObjetoMagicoService _objetoMagicoService;
-    
+
     public ObjetosMagicosController(IPersonajeService personajeService, IObjetoMagicoService objetoMagicoService)
     {
         this._personajeService = personajeService;
@@ -37,7 +37,7 @@ public class ObjetosMagicosController : ControllerBase
             return NotFound("No se encontró el objeto mágico.");
         }
     }
-    
+
     [HttpPost]
     public IActionResult Post([FromBody] ObjetoMagicoRequest objetoMagico)
     {
@@ -55,41 +55,28 @@ public class ObjetosMagicosController : ControllerBase
             return BadRequest("No se pudo agregar el objeto mágico");
         }
     }
-    
+
 
     [HttpPost("usar")]
     public IActionResult Usar([FromBody] UsarObjetoRequest request)
     {
-        try{
+        try
+        {
             Personaje? personajeOrigen = _personajeService.ObtenerPorId(request.PersonajeOrigenId);
             Personaje? personajeDestino = _personajeService.ObtenerPorId(request.PersonajeDestinoId);
             ObjetoMagico objetoMagico = _objetoMagicoService.ObtenerPorId(request.ObjetoMagicoId);
-            if(personajeOrigen == null || personajeDestino == null)
+            if (personajeOrigen == null || personajeDestino == null)
             {
                 return NotFound("No se encontró el personaje");
             }
-            return Ok(UsarObjetoMagico(objetoMagico, personajeOrigen, personajeDestino));
-        }catch(Exception){
+            objetoMagico.Usar(personajeDestino);
+            
+            return Ok($"{personajeOrigen.Nombre} usa {objetoMagico.Nombre} y aplicó el efecto: {objetoMagico.Efecto} a {personajeDestino.Nombre}");
+        }
+        catch (Exception)
+        {
             return NotFound("No se encontró el objeto mágico.");
         }
-    }
-
-    private static string UsarObjetoMagico(ObjetoMagico objetoMagico, Personaje personajeOrigen, Personaje personajeDestino)
-    {
-        objetoMagico.Usar(personajeOrigen);
-        var objetivo = string.Empty;
-        switch (objetoMagico.Nombre)
-        {
-            case "Poción Curación":
-                personajeOrigen.HP += 20;
-                objetivo = personajeOrigen.Nombre;
-                break;
-            case "Veneno":
-                personajeDestino.HP -= 10;
-                objetivo = personajeDestino.Nombre;
-                break;
-        }
-        return $"{personajeOrigen.Nombre} usa {objetoMagico.Nombre} y aplicó el efecto: {objetoMagico.Efecto} a {objetivo}";
     }
 
     [HttpPut("actualizar/{id}")]

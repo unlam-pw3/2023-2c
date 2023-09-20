@@ -8,7 +8,7 @@ namespace Clase4.POO.Logica.ObjetosMagicos
         {
         }
 
-        public new void Usar(Personaje personaje)
+        public override void Usar(Personaje personaje)
         {
             Console.WriteLine($"{personaje.Nombre} usa {Nombre} y recibe el efecto: {Efecto}");
             // Lógica para aplicar el efecto al personaje

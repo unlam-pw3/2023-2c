@@ -21,7 +21,7 @@ public class Arma : IAtacante
         PoderAtaque = poderAtaque;
     }
 
-    public void Atacar(Personaje objetivo)
+    public virtual void Atacar(Personaje objetivo)
     {
         Console.WriteLine($"{Nombre} ataca a {objetivo.Nombre} y hace {PoderAtaque} puntos de daño.");
         // aplicar daño al objetivo

@@ -23,7 +23,7 @@ public class ObjetoMagico : IItem
         Efecto = efecto;
     }
 
-    public void Usar(Personaje personaje)
+    public virtual void Usar(Personaje personaje)
     {
         
         Console.WriteLine($"{personaje.Nombre} usa {Nombre} y obtiene el efecto: {Efecto}");

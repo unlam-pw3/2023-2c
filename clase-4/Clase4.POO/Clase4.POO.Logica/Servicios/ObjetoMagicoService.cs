@@ -14,7 +14,11 @@ namespace Clase4.POO.Logica.Servicios
 
     public class ObjetoMagicoService : IObjetoMagicoService
     {
-        private static readonly List<ObjetoMagico> _objetosMagicos = new();
+        private static readonly List<ObjetoMagico> _objetosMagicos = new()
+        {
+            new Veneno("Hiedra venenosa", "Produce mareos y perdida de conocimiento"),
+            new PocionCuracion("Lata de espinaca", "Otorga fuerza extraordinaria temporalmente"),
+        };
 
         public bool Agregar(ObjetoMagico objetoMagico)
         {
