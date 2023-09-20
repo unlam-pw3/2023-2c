@@ -10,6 +10,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IPersonajeService, PersonajeService>();
+builder.Services.AddSingleton<IObjetoMagicoService, ObjetoMagicoService>(); // Assuming ObjetoMagicoService is the implementation
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
