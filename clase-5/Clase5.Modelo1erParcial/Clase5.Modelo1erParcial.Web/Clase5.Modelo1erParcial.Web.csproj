@@ -10,4 +10,8 @@
     <Folder Include="Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Clase5.Modelo1erParcial.Logica\Clase5.Modelo1erParcial.Logica.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,8 @@ VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase5.Modelo1erParcial.Web", "Clase5.Modelo1erParcial.Web\Clase5.Modelo1erParcial.Web.csproj", "{E3D242F6-3543-48C8-A61D-A6B3B74A80E3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase5.Modelo1erParcial.Logica", "Clase5.Modelo1erParcial.Logica\Clase5.Modelo1erParcial.Logica.csproj", "{3859C8FF-28F8-4F92-94DB-39A153873AC0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{E3D242F6-3543-48C8-A61D-A6B3B74A80E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3D242F6-3543-48C8-A61D-A6B3B74A80E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3D242F6-3543-48C8-A61D-A6B3B74A80E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3859C8FF-28F8-4F92-94DB-39A153873AC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3859C8FF-28F8-4F92-94DB-39A153873AC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3859C8FF-28F8-4F92-94DB-39A153873AC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3859C8FF-28F8-4F92-94DB-39A153873AC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
