@@ -5,6 +5,11 @@ namespace Clase5.Modelo1erParcial.Web.Controllers
 {
     public class PrincipalController : Controller
     {
+        private readonly IRectanguloService _rectanguloService;
+        public PrincipalController(IRectanguloService rectanguloService)
+        {
+            _rectanguloService = rectanguloService;
+        }
         public IActionResult Bienvenido()
         {
             return View();
@@ -21,7 +26,8 @@ namespace Clase5.Modelo1erParcial.Web.Controllers
         {
             if (ModelState.IsValid)
             {
-                return View("Resultados");
+                _rectanguloService.Agregar(request);
+                return RedirectToAction("Resultados");
             }
             
             return View(request);
@@ -30,7 +36,7 @@ namespace Clase5.Modelo1erParcial.Web.Controllers
         [HttpGet]
         public IActionResult Resultados()
         {
-            return View();
+            return View(_rectanguloService.Listar());
         }
     }
 }

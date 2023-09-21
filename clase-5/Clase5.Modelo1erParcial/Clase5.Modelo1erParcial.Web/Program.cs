@@ -1,7 +1,11 @@
+using Clase5.Modelo1erParcial.Logica;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddScoped<IRectanguloService, RectanguloService>();
 
 var app = builder.Build();
 

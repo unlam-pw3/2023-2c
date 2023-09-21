@@ -1,0 +1,20 @@
+﻿@model List<Clase5.Modelo1erParcial.Logica.Rectangulo>;
+<table>
+    <tr>
+        <th>Calculo</th>
+        <th>Base</th>
+        <th>Altura</th>
+        <th>=</th>
+        <th>Resultado</th>
+    </tr>
+    @foreach(var item in Model)
+    {
+        <tr>
+            <td>Calculo @item.Id</td>
+            <td>@item.Base</td>
+            <td>@item.Altura</td>
+            <td>=</td>
+            <td>@item.Area</td>
+        </tr>
+    }
+</table>
