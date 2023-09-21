@@ -1,0 +1,41 @@
+﻿@model List<Clase5.Modelo1erParcial.Logica.Rectangulo>;
+<style>
+    table {
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+    tr.ultimo
+    {
+            font-weight: bold;
+    }
+</style>
+@if (Model == null || Model.Count == 0)
+{
+    <h2>No hay calculos para mostrar.</h2>
+}
+else
+{
+    <table>
+        <tr>
+            <th>Calculo</th>
+            <th>Base</th>
+            <th>Altura</th>
+            <th>=</th>
+            <th>Resultado</th>
+        </tr>
+        @foreach (var item in Model)
+        {
+            bool esUltimoCalculoAgregado = TempData["UltRectanguloAgregadoId"] == null ? false : (item.Id == Convert.ToInt32(TempData["UltRectanguloAgregadoId"]));
+            <tr class="@(esUltimoCalculoAgregado ? "ultimo" : "")">
+                <td>Calculo @item.Id</td>
+                <td >@item.Base</td>
+                <td>@item.Altura</td>
+                <td>=</td>
+                <td>@item.Area</td>
+            </tr>
+        }
+    </table>
+}
