@@ -27,6 +27,8 @@ namespace Clase5.Modelo1erParcial.Web.Controllers
             if (ModelState.IsValid)
             {
                 _rectanguloService.Agregar(request);
+                //guardo en tempdata el ultimo id para mostrarlo en negrita en la vista de resultados
+                TempData["UltRectanguloAgregadoId"] = request.Id;
                 return RedirectToAction("Resultados");
             }
             
