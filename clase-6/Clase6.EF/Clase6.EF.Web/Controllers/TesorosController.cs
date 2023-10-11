@@ -21,4 +21,29 @@ public class TesorosController : ControllerBase
     {
         return _tesoroServicio.ObtenerTodos();
     }
+
+    [HttpGet("{id}")]
+    public Tesoro Get(int id)
+    {
+        return _tesoroServicio.ObtenerPorId(id);
+    }
+
+    [HttpPost]
+    public void Post([FromBody] Tesoro tesoro)
+    {
+        _tesoroServicio.Agregar(tesoro);
+    }
+
+    [HttpPut("{id}")]
+    public void Put(int id, [FromBody] Tesoro tesoro)
+    {
+        tesoro.Id = id;
+        _tesoroServicio.Actualizar(tesoro);
+    }
+
+    [HttpDelete("{id}")]
+    public void Delete(int id)
+    {
+        _tesoroServicio.Eliminar(id);
+    }
 }
