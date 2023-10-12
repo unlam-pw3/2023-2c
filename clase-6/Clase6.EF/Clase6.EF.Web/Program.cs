@@ -11,6 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddScoped<Pw32cIslaTesoroContext>();
+builder.Services.AddScoped<IUbicacionServicio, UbicacionServicio>();
 builder.Services.AddScoped<ITesoroServicio, TesoroServicio>();
 
 var app = builder.Build();
