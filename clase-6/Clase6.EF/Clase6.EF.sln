@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase6.EF.Data", "Clase6.EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase6.EF.Logica", "Clase6.EF.Logica\Clase6.EF.Logica.csproj", "{51E0982C-92EC-4295-A354-ABF0E4D05C36}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clase6.EF.Test", "Clase6.EF.Test\Clase6.EF.Test.csproj", "{9081C982-FF99-4DDF-A258-E5F96CEF6E2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{51E0982C-92EC-4295-A354-ABF0E4D05C36}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51E0982C-92EC-4295-A354-ABF0E4D05C36}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51E0982C-92EC-4295-A354-ABF0E4D05C36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9081C982-FF99-4DDF-A258-E5F96CEF6E2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9081C982-FF99-4DDF-A258-E5F96CEF6E2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9081C982-FF99-4DDF-A258-E5F96CEF6E2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9081C982-FF99-4DDF-A258-E5F96CEF6E2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
