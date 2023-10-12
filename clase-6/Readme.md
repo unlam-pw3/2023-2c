@@ -1,7 +1,7 @@
 #  Clase-6-Practica Entity Framework "Isla del Tesoro"
 
 ## En Clase
-Hicimos ejemplos Alta, Baja, Modificacion y Listado de la entidad "Tesoro" usando web api
+Hicimos ejemplos Alta, Baja, Modificacion y Listado de la entidad "Tesoro" usando web api y creamos tests usando database in memory
 
 ## Modelo de datos
 Tesoro
