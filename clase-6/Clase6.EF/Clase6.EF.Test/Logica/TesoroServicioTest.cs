@@ -1,7 +1,6 @@
 ﻿using Clase6.EF.Data.EF;
 using Clase6.EF.Logica;
 using Clase6.EF.Test.Comun;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
