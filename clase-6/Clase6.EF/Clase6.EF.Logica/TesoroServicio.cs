@@ -1,4 +1,7 @@
-﻿using Clase6.EF.Data.EF;
+﻿using System.Security.Cryptography;
+using Clase6.EF.Data.EF;
+using Clase6.EF.Logica.Excepciones;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Clase6.EF.Logica;
 
@@ -9,6 +12,7 @@ public interface ITesoroServicio
     Tesoro ObtenerPorId(int id);
     void Actualizar(Tesoro tesoro);
     void Eliminar(int id);
+    List<Tesoro> ObtenerTodosEnUbicacion(int idUbicacion);
 }
 
 public class TesoroServicio : ITesoroServicio
@@ -22,6 +26,13 @@ public class TesoroServicio : ITesoroServicio
 
     public void Agregar(Tesoro tesoro)
     {
+        if (tesoro.IdUbicacion.HasValue)
+        {
+            var ubicacion = _context.Ubicacions.Find(tesoro.IdUbicacion);
+            if (ubicacion == null)
+                throw new TesorosException($"No existe la ubicacion {tesoro.IdUbicacion}");
+        }
+        
         this._context.Tesoros.Add(tesoro);
         this._context.SaveChanges();
     }
@@ -37,6 +48,13 @@ public class TesoroServicio : ITesoroServicio
 
     public void Actualizar(Tesoro tesoro)
     {
+        if (tesoro.IdUbicacion.HasValue)
+        {
+            var ubicacion = _context.Ubicacions.Find(tesoro.IdUbicacion);
+            if (ubicacion == null)
+                throw new TesorosException($"No existe la ubicacion {tesoro.IdUbicacion}");
+        }
+        
         this._context.Tesoros.Update(tesoro);
         this._context.SaveChanges();
     }
@@ -50,5 +68,17 @@ public class TesoroServicio : ITesoroServicio
         
         this._context.Tesoros.Remove(tesoro);
         this._context.SaveChanges();
+    }
+
+    public List<Tesoro> ObtenerTodosEnUbicacion(int idUbicacion)
+    {
+        //usando Linq
+        //return (from t in _context.Tesoros
+        //        where t.IdUbicacion == idUbicacion
+        //        select t)
+        //        .ToList();
+
+        //Usando expresiones Lambda
+        return this._context.Tesoros.Where(t => t.IdUbicacion == idUbicacion).ToList();
     }
 }

@@ -17,6 +17,7 @@ public class TesoroServicioTest : TestBase
     public void AgregarTest()
     {
         //Arrange
+        //Scaffold-DbContext "Server=.;Database=Pw3-2c-IslaTesoro;Trusted_Connection=True;Encrypt=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir EF
         Pw32cIslaTesoroContext context = ServiceProvider.GetService<Pw32cIslaTesoroContext>();
         ITesoroServicio tesoroServicio = new TesoroServicio(context);
 

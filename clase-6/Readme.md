@@ -23,3 +23,8 @@ Tesoro
 - Crear script de datos iniciales
 - Agregar las operaciones de Alta, Baja, Modificacion y Listado de la entidad "Ubicacion"
 - Agregar Tests para todas las operaciones con la entidad Ubicacion
+
+## Como Actualizar el modelo de datos?
+- Actualizar la/s tabla/s en la base de datos
+- En el manejador de paquetes escribir el comando
+- Scaffold-DbContext "Server=.;Database=Pw3-2c-IslaTesoro;Trusted_Connection=True;Encrypt=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir EF -Force

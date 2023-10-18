@@ -1,5 +1,7 @@
-﻿using Clase6.EF.Data.EF;
+﻿using System.Net;
+using Clase6.EF.Data.EF;
 using Clase6.EF.Logica;
+using Clase6.EF.Logica.Excepciones;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clase6.EF.Web.Controllers;
@@ -29,9 +31,23 @@ public class TesorosController : ControllerBase
     }
 
     [HttpPost]
-    public void Post([FromBody] Tesoro tesoro)
+    public IActionResult Post([FromBody] Tesoro tesoro)
     {
-        _tesoroServicio.Agregar(tesoro);
+        try
+        {
+            _tesoroServicio.Agregar(tesoro);
+        }
+        catch (TesorosException ex)
+        {
+            return BadRequest(ex.Message);
+        }
+        catch (Exception ex)
+        {
+            //TODO: logear excepcion
+            return StatusCode(500, "Ha ocurrido un error inesperado");
+        }
+        
+        return Ok();
     }
 
     [HttpPut("{id}")]
@@ -45,5 +61,11 @@ public class TesorosController : ControllerBase
     public void Delete(int id)
     {
         _tesoroServicio.Eliminar(id);
+    }
+
+    [HttpGet("ObtenerTodosEnUbicacion")]
+    public ActionResult<List<Tesoro>> ObtenerTodosEnUbicacion(int idUbicacion)
+    {
+        return Ok(_tesoroServicio.ObtenerTodosEnUbicacion(idUbicacion));
     }
 }
