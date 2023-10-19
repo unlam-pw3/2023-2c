@@ -28,9 +28,19 @@ public class TesorosController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public Tesoro Get(int id)
+    public IActionResult Get(int id)
     {
-        return _tesoroServicio.ObtenerPorId(id);
+        var tesoro = _tesoroServicio.ObtenerPorId(id);
+
+        var response = new TesoroResponseModel
+        {
+            Id = tesoro.Id,
+            ImagenRuta = tesoro.ImagenRuta,
+            Nombre = tesoro.Nombre,
+            Ubicacion = tesoro.IdUbicacionNavigation == null ? null : new UbicacionResponseModel { Id = tesoro.IdUbicacionNavigation.Id, Nombre = tesoro.IdUbicacionNavigation.Nombre }
+        };
+
+        return Ok(response);
     }
 
     [HttpPost]

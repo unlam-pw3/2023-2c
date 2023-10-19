@@ -1,6 +1,7 @@
 ﻿using System.Security.Cryptography;
 using Clase6.EF.Data.EF;
 using Clase6.EF.Logica.Excepciones;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Clase6.EF.Logica;
@@ -43,7 +44,9 @@ public class TesoroServicio : ITesoroServicio
 
     public Tesoro ObtenerPorId(int id)
     {
-        return this._context.Tesoros.Find(id);
+        return this._context.Tesoros
+            .Include(t=> t.IdUbicacionNavigation)
+            .FirstOrDefault(t=> t.Id == id);
     }
 
     public void Actualizar(Tesoro tesoro)
