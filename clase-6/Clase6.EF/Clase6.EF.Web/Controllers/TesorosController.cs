@@ -2,6 +2,7 @@
 using Clase6.EF.Data.EF;
 using Clase6.EF.Logica;
 using Clase6.EF.Logica.Excepciones;
+using Clase6.EF.Web.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Clase6.EF.Web.Controllers;
@@ -11,10 +12,12 @@ namespace Clase6.EF.Web.Controllers;
 public class TesorosController : ControllerBase
 {
     private ITesoroServicio _tesoroServicio;
+    private readonly IUbicacionServicio _ubicacionServicio;
 
-    public TesorosController(ITesoroServicio tesoroServicio)
+    public TesorosController(ITesoroServicio tesoroServicio, IUbicacionServicio ubicacionServicio)
     {
         this._tesoroServicio = tesoroServicio;
+        this._ubicacionServicio = ubicacionServicio;
     }
 
 
@@ -31,10 +34,19 @@ public class TesorosController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Post([FromBody] Tesoro tesoro)
+    public IActionResult Post([FromBody] TesoroRequestModel tesoroRequest)
     {
+        var tesoro = new Tesoro();
         try
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            tesoro.Nombre = tesoroRequest.Nombre;
+            tesoro.ImagenRuta = tesoroRequest.ImagenRuta;
+            tesoro.IdUbicacion = tesoroRequest.IdUbicacion;
+
             _tesoroServicio.Agregar(tesoro);
         }
         catch (TesorosException ex)
@@ -47,14 +59,55 @@ public class TesorosController : ControllerBase
             return StatusCode(500, "Ha ocurrido un error inesperado");
         }
         
-        return Ok();
+        Ubicacion ubicacion = null;
+        if (tesoroRequest.IdUbicacion.HasValue)
+        {
+            ubicacion = _ubicacionServicio.ObtenerPorId(tesoro.IdUbicacion.Value);
+        }
+        
+        var response = new TesoroResponseModel
+        {
+            Id = tesoro.Id,
+            ImagenRuta = tesoro.ImagenRuta,
+            Nombre = tesoro.Nombre,
+            Ubicacion = ubicacion == null ? null : new UbicacionResponseModel { Id = ubicacion.Id, Nombre = ubicacion.Nombre }
+        };
+
+
+        return Ok(response);
     }
 
     [HttpPut("{id}")]
-    public void Put(int id, [FromBody] Tesoro tesoro)
+    public IActionResult Put(int id, [FromBody] TesoroRequestModel tesoroRequest)
     {
-        tesoro.Id = id;
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
+        
+        var tesoro = new Tesoro();
+        tesoro.Id = tesoroRequest.Id;
+        tesoro.Nombre = tesoroRequest.Nombre;
+        tesoro.ImagenRuta = tesoroRequest.ImagenRuta;
+        tesoro.IdUbicacion = tesoroRequest.IdUbicacion;
+        
         _tesoroServicio.Actualizar(tesoro);
+
+        Ubicacion ubicacion = null;
+        if (tesoroRequest.IdUbicacion.HasValue)
+        {
+            ubicacion = _ubicacionServicio.ObtenerPorId(tesoro.IdUbicacion.Value);
+        }
+
+        var response = new TesoroResponseModel
+        {
+            Id = tesoro.Id,
+            ImagenRuta = tesoro.ImagenRuta,
+            Nombre = tesoro.Nombre,
+            Ubicacion = ubicacion == null ? null : new UbicacionResponseModel { Id = ubicacion.Id, Nombre = ubicacion.Nombre }
+        };
+        
+        return Ok(response);
     }
 
     [HttpDelete("{id}")]
