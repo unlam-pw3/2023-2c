@@ -10,4 +10,10 @@ public partial class Tesoro
     public string Nombre { get; set; } = null!;
 
     public string? ImagenRuta { get; set; }
+
+    public int? IdUbicacion { get; set; }
+
+    public virtual ICollection<CategoriaTesoro> CategoriaTesoros { get; set; } = new List<CategoriaTesoro>();
+
+    public virtual Ubicacion? IdUbicacionNavigation { get; set; }
 }
