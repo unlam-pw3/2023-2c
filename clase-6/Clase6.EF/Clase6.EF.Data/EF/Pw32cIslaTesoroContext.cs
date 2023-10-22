@@ -29,16 +29,13 @@ public partial class Pw32cIslaTesoroContext : DbContext
     {
         modelBuilder.Entity<CategoriaTesoro>(entity =>
         {
+            entity.HasKey(e => e.Id).HasName("PK__Categori__3214EC07A6A25CE8");
+
             entity.ToTable("CategoriaTesoro");
 
             entity.Property(e => e.Nombre)
-                .HasMaxLength(100)
+                .HasMaxLength(255)
                 .IsUnicode(false);
-            entity.Property(e => e.TesoroId).HasColumnName("TesoroID");
-
-            entity.HasOne(d => d.Tesoro).WithMany(p => p.CategoriaTesoros)
-                .HasForeignKey(d => d.TesoroId)
-                .HasConstraintName("FK_CategoriaTesoro_Tesoro");
         });
 
         modelBuilder.Entity<Tesoro>(entity =>
@@ -47,6 +44,11 @@ public partial class Pw32cIslaTesoroContext : DbContext
 
             entity.Property(e => e.ImagenRuta).HasMaxLength(300);
             entity.Property(e => e.Nombre).HasMaxLength(100);
+
+            entity.HasOne(d => d.CategoriaTesoro).WithMany(p => p.Tesoros)
+                .HasForeignKey(d => d.CategoriaTesoroId)
+                .OnDelete(DeleteBehavior.SetNull)
+                .HasConstraintName("fk_Tesoro_CategoriaTesoro");
 
             entity.HasOne(d => d.IdUbicacionNavigation).WithMany(p => p.Tesoros)
                 .HasForeignKey(d => d.IdUbicacion)

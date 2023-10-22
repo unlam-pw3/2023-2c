@@ -12,6 +12,7 @@ public interface ITesoroServicio
     void Actualizar(Tesoro tesoro);
     void Eliminar(int id);
     List<Tesoro> ObtenerTodosEnUbicacion(int idUbicacion);
+    List<Tesoro> ObtenerPorCategoria(string Nombre);
 }
 
 public class TesoroServicio : ITesoroServicio
@@ -27,11 +28,9 @@ public class TesoroServicio : ITesoroServicio
     {
         if (tesoro.IdUbicacion.HasValue)
         {
-            var ubicacion = _context.Ubicacions.Find(tesoro.IdUbicacion);
-            if (ubicacion == null)
-                throw new TesorosException($"No existe la ubicacion {tesoro.IdUbicacion}");
+            var ubicacion = _context.Ubicacions.Find(tesoro.IdUbicacion) ?? throw new TesorosException($"No existe la ubicacion {tesoro.IdUbicacion}");
         }
-        
+
         this._context.Tesoros.Add(tesoro);
         this._context.SaveChanges();
     }
@@ -81,5 +80,13 @@ public class TesoroServicio : ITesoroServicio
 
         //Usando expresiones Lambda
         return this._context.Tesoros.Where(t => t.IdUbicacion == idUbicacion).ToList();
+    }
+
+    public List<Tesoro> ObtenerPorCategoria(string Nombre)
+    {
+        return this._context.Tesoros
+            .Include(t => t.IdUbicacionNavigation)
+            .Where(t => t.IdUbicacionNavigation != null && t.IdUbicacionNavigation.Nombre == Nombre)
+            .ToList();
     }
 }

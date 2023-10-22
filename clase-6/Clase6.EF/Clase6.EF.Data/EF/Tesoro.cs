@@ -13,7 +13,9 @@ public partial class Tesoro
 
     public int? IdUbicacion { get; set; }
 
-    public virtual ICollection<CategoriaTesoro> CategoriaTesoros { get; set; } = new List<CategoriaTesoro>();
+    public int? CategoriaTesoroId { get; set; }
+
+    public virtual CategoriaTesoro? CategoriaTesoro { get; set; }
 
     public virtual Ubicacion? IdUbicacionNavigation { get; set; }
 }

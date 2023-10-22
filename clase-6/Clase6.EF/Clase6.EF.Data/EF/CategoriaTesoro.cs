@@ -9,7 +9,5 @@ public partial class CategoriaTesoro
 
     public string Nombre { get; set; } = null!;
 
-    public int? TesoroId { get; set; }
-
-    public virtual Tesoro? Tesoro { get; set; }
+    public virtual ICollection<Tesoro> Tesoros { get; set; } = new List<Tesoro>();
 }

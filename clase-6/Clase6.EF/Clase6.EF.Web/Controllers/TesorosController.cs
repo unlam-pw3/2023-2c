@@ -93,13 +93,15 @@ public class TesorosController : ControllerBase
         {
             return BadRequest(ModelState);
         }
-        
-        var tesoro = new Tesoro();
-        tesoro.Id = tesoroRequest.Id;
-        tesoro.Nombre = tesoroRequest.Nombre;
-        tesoro.ImagenRuta = tesoroRequest.ImagenRuta;
-        tesoro.IdUbicacion = tesoroRequest.IdUbicacion;
-        
+
+        var tesoro = new Tesoro
+        {
+            Id = tesoroRequest.Id,
+            Nombre = tesoroRequest.Nombre,
+            ImagenRuta = tesoroRequest.ImagenRuta,
+            IdUbicacion = tesoroRequest.IdUbicacion
+        };
+
         _tesoroServicio.Actualizar(tesoro);
 
         Ubicacion? ubicacion = null;
@@ -132,5 +134,11 @@ public class TesorosController : ControllerBase
     public ActionResult<List<Tesoro>> ObtenerTodosEnUbicacion(int idUbicacion)
     {
         return Ok(_tesoroServicio.ObtenerTodosEnUbicacion(idUbicacion));
+    }
+
+    [HttpGet("ObtenerPorCategoria")]
+    public ActionResult<List<Tesoro>> ObtenerPorCategoria(string nombre)
+    {
+        return Ok(_tesoroServicio.ObtenerPorCategoria(nombre));
     }
 }
