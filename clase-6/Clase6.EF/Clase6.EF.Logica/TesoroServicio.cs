@@ -85,8 +85,8 @@ public class TesoroServicio : ITesoroServicio
     public List<Tesoro> ObtenerPorCategoria(string Nombre)
     {
         return this._context.Tesoros
-            .Include(t => t.IdUbicacionNavigation)
-            .Where(t => t.IdUbicacionNavigation != null && t.IdUbicacionNavigation.Nombre == Nombre)
+            .Include(t => t.CategoriaTesoro)
+            .Where(t => t.CategoriaTesoro != null && t.CategoriaTesoro.Nombre == Nombre)
             .ToList();
     }
 }

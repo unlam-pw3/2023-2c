@@ -37,4 +37,35 @@ public class TesoroServicioTest : TestBase
         Assert.Equal(tesoro.ImagenRuta, tesoroEncontrado.ImagenRuta);
         Assert.Equal(1, context.Tesoros.Count());
     }
+
+    [Fact]
+    public void ListarTesorosConCategoria()
+    {
+        //Arrange
+        Pw32cIslaTesoroContext context = ServiceProvider.GetService<Pw32cIslaTesoroContext>();
+        ITesoroServicio tesoroServicio = new TesoroServicio(context);
+
+        var tesoro = new Tesoro()
+        {
+            Nombre = "Cofre",
+            ImagenRuta = "/imagenes/cofre.png",
+        };
+
+        var categoria = new CategoriaTesoro()
+        {
+            Nombre = "Mitico"
+        };
+
+        tesoro.CategoriaTesoro = categoria;
+
+        //Act
+        tesoroServicio.Agregar(tesoro);
+        
+        //Assert
+        List<Tesoro> listaTesoros = tesoroServicio.ObtenerPorCategoria(categoria.Nombre);
+        
+        Assert.NotNull(listaTesoros);
+        Assert.NotEmpty(listaTesoros);
+        Assert.Single(listaTesoros);
+    }
 }
