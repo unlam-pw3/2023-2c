@@ -1,0 +1,20 @@
+GO
+
+CREATE TABLE CategoriaTesoro (
+  Id INT IDENTITY(1,1) NOT NULL,
+  Nombre VARCHAR(255) NOT NULL,
+  PRIMARY KEY (Id)
+);
+
+GO
+
+ALTER TABLE Tesoro
+ADD CategoriaTesoroId INT NULL;
+
+GO
+
+ALTER TABLE Tesoro
+ADD CONSTRAINT fk_Tesoro_CategoriaTesoro
+FOREIGN KEY (CategoriaTesoroId) REFERENCES CategoriaTesoro (Id)
+ON DELETE SET NULL
+ON UPDATE CASCADE;

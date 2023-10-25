@@ -31,7 +31,6 @@ public class UbicacionController : ControllerBase
     [HttpPost]
     public IActionResult Post([FromBody] Ubicacion ubicacion)
     {
-        Ubicacion data = this._ubicacionServicio.ObtenerPorNombre(ubicacion.Nombre);
         if(this._ubicacionServicio.ObtenerPorNombre(ubicacion.Nombre) != null)
             return BadRequest("Ya existe una ubicacion con ese nombre");
         _ubicacionServicio.Agregar(ubicacion);
@@ -41,9 +40,10 @@ public class UbicacionController : ControllerBase
     [HttpPut("{id}")]
     public IActionResult Put(int id, [FromBody] Ubicacion ubicacion)
     {
-        ubicacion.Id = id;
         if(this._ubicacionServicio.ObtenerPorId(id) == null)
             return BadRequest("No existe una ubicacion con ese id");
+        ubicacion.Id = id;
+
         _ubicacionServicio.Actualizar(ubicacion);
         return Ok();
     }
