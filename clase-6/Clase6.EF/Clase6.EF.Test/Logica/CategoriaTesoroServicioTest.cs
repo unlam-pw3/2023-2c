@@ -6,9 +6,9 @@ using Xunit;
 
 namespace Clase6.EF.Test.Logica;
 
-public class CategoriaTesoroTest : TestBase
+public class CategoriaTesoroServicioTest : TestBase
 {
-    public CategoriaTesoroTest()
+    public CategoriaTesoroServicioTest()
     {
     
     }
@@ -18,17 +18,17 @@ public class CategoriaTesoroTest : TestBase
     {
         //Arrange
         Pw32cIslaTesoroContext context = ServiceProvider.GetService<Pw32cIslaTesoroContext>();
-        ICategoriaTesoroServicio tesoroServicio = new CategoriaTesoroServicio(context);
+        ICategoriaTesoroServicio categoriaTesoroServicio = new CategoriaTesoroServicio(context);
         var categoriaTesoro = new CategoriaTesoro
         {
             Id = 1,
             Nombre = "Mitico"
         };
 
-        tesoroServicio.Agregar(categoriaTesoro);
+        categoriaTesoroServicio.Agregar(categoriaTesoro);
 
         //Act
-        var categoriaTesoroObtenido = tesoroServicio.ObtenerPorId(categoriaTesoro.Id);
+        var categoriaTesoroObtenido = categoriaTesoroServicio.ObtenerPorId(categoriaTesoro.Id);
         Assert.NotNull(categoriaTesoroObtenido);
         Assert.Equal(categoriaTesoro.Id, categoriaTesoroObtenido.Id);
         Assert.Equal(categoriaTesoro.Nombre, categoriaTesoroObtenido.Nombre);
@@ -39,17 +39,17 @@ public class CategoriaTesoroTest : TestBase
     {
         //Arrange
         using Pw32cIslaTesoroContext? context = ServiceProvider.GetService<Pw32cIslaTesoroContext>();
-        ICategoriaTesoroServicio tesoroServicio = new CategoriaTesoroServicio(context!);
+        ICategoriaTesoroServicio categoriaTesoroServicio = new CategoriaTesoroServicio(context!);
         var categoriaTesoro = new CategoriaTesoro
         {
             Id = 1,
             Nombre = "Mitico"
         };
 
-        tesoroServicio.Agregar(categoriaTesoro);
+        categoriaTesoroServicio.Agregar(categoriaTesoro);
 
         //Act
-        var categorias = tesoroServicio.ObtenerTodos();
+        var categorias = categoriaTesoroServicio.ObtenerTodos();
         Assert.NotNull(categorias);
         Assert.NotEmpty(categorias);
         Assert.Single(categorias);
