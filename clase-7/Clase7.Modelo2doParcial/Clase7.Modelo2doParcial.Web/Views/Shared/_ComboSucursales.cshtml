@@ -1,0 +1,17 @@
+﻿@using Clase7.Modelo2doParcial.Data.EF
+<label class="col-md-2 control-label">Cadena</label>
+
+<select id="IdCadena" name="IdCadena">
+    <option>-</option>
+    @foreach (Cadena item in ViewBag.Cadenas)
+    {
+        if (((int?)ViewBag.IdCadenaSeleccionada).HasValue && ((int?)ViewBag.IdCadenaSeleccionada).Value == item.Id)
+        {
+            <option value="@item.Id" selected>@item.RazonSocial</option>
+        }
+        else
+        {
+            <option value="@item.Id">@item.RazonSocial</option>
+        }
+    }
+</select>

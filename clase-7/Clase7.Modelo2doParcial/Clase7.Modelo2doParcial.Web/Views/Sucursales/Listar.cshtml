@@ -1,0 +1,27 @@
+﻿@using Clase7.Modelo2doParcial.Data.EF
+@model List<Sucursal>
+<form action="/sucursales/Listar" method="post">
+    <div class="form-horizontal">
+        <h4>Sucursales</h4>
+        <hr />
+        <partial name="/Views/Shared/_ComboSucursales.cshtml">
+            <input type="submit" value="Filtrar" />
+            <table>
+                <tr>
+                    <th>Cadena</th>
+                    <th>Ciudad</th>
+                    <th>Diraccion</th>
+                    <th>Eliminar</th>
+                </tr>
+                @foreach (var sucursal in Model)
+                {
+                    <tr>
+                        <td>@sucursal.IdCadenaNavigation?.RazonSocial</td>
+                        <td>@sucursal.Ciudad</td>
+                        <td>@sucursal.Direccion</td>
+                        <td><a href="/sucursales/eliminar/@sucursal.Id">Eliminar</a></td>
+                    </tr>
+                }
+            </table>
+    </div>
+</form>
