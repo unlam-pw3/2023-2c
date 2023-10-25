@@ -43,7 +43,7 @@ public class TesoroServicioTest : TestBase
     {
         //Arrange
         Pw32cIslaTesoroContext context = ServiceProvider.GetService<Pw32cIslaTesoroContext>();
-        TesoroServicio tesoroServicio = new TesoroServicio(context);
+        ITesoroServicio tesoroServicio = new TesoroServicio(context);
 
         var tesoro = new Tesoro()
         {
