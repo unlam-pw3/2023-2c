@@ -42,7 +42,7 @@ namespace Clase6.EF.Logica
             this._context.SaveChanges();
         }
 
-                public Ubicacion? ObtenerPorId(int id)
+        public Ubicacion? ObtenerPorId(int id)
         {
             return this._context.Ubicacions.Find(id);
         }
@@ -57,5 +57,4 @@ namespace Clase6.EF.Logica
             return this._context.Ubicacions.ToList();
         }
     }
-
 }

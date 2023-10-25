@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace Clase6.EF.Data.EF;
@@ -18,4 +18,5 @@ public partial class Tesoro
     public virtual CategoriaTesoro? CategoriaTesoro { get; set; }
 
     public virtual Ubicacion? IdUbicacionNavigation { get; set; }
+
 }

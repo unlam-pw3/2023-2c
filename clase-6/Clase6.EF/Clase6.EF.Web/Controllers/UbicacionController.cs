@@ -43,6 +43,7 @@ public class UbicacionController : ControllerBase
         if(this._ubicacionServicio.ObtenerPorId(id) == null)
             return BadRequest("No existe una ubicacion con ese id");
         ubicacion.Id = id;
+
         _ubicacionServicio.Actualizar(ubicacion);
         return Ok();
     }
