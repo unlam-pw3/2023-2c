@@ -10,9 +10,9 @@ namespace Clase6.EF.Web.Controllers;
 [Route("[controller]")]
 public class CategoriaTesoroController : ControllerBase
 {
-    private readonly ICategoriaTesoroServicio _categoriaTesoroServicio;
+    private readonly IRepositorio<CategoriaTesoro> _categoriaTesoroServicio;
 
-    public CategoriaTesoroController(ICategoriaTesoroServicio categoriaTesoroServicio)
+    public CategoriaTesoroController(IRepositorio<CategoriaTesoro> categoriaTesoroServicio)
     {
         this._categoriaTesoroServicio = categoriaTesoroServicio;
     }

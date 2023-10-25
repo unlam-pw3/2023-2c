@@ -4,14 +4,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Clase6.EF.Logica;
 
-public interface ICategoriaTesoroServicio
-{
-    void Agregar(CategoriaTesoro categoriaTesoro);
-    List<CategoriaTesoro> ObtenerTodos();
-    CategoriaTesoro? ObtenerPorId(int id);
-    void Actualizar(CategoriaTesoro categoriaTesoro);
-    void Eliminar(int id);
-}
+public interface ICategoriaTesoroServicio : IRepositorio<CategoriaTesoro> {}
 
 public class CategoriaTesoroServicio : ICategoriaTesoroServicio
 {
@@ -44,11 +37,8 @@ public class CategoriaTesoroServicio : ICategoriaTesoroServicio
 
     public void Eliminar(int id)
     {
-        if(_context.CategoriaTesoros.Find(id) == null)
-        {
-            throw new CategoriaTesoroException("No existe la categoría");
-        }
-        _context.CategoriaTesoros.Remove(_context.CategoriaTesoros.Find(id));
+        var categoria = _context.CategoriaTesoros.Find(id) ?? throw new CategoriaTesoroException("No existe la categoría");
+        _context.CategoriaTesoros.Remove(categoria);
         _context.SaveChanges();
     }
 
